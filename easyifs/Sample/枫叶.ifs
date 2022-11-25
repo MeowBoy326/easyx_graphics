@@ -1,0 +1,71 @@
+;IFS(Iterator Function System) 配置文件
+;
+;[main] 节中：
+;name = IFS 名称
+;iterLimit = IFS 迭代次数
+;color = 绘图颜色(默认为绿色)
+;minX, maxX = 绘图窗口的 x 坐标范围 [minX, maxX]
+;minY, maxY = 绘图窗口的 y 坐标范围 [minX, maxX]
+;condition = IFS 公式个数
+;
+;[conditionx] 节中
+;a、b、c、d、e、f 是 IFS 公式的常数项：
+;	x = a * x + b * y + e
+;	y = c * x + d * y + f
+;p = 概率
+;要求各公式的概率和 == 1
+
+[main]
+name=枫叶
+iterLimit=50000
+color=255
+minX=0
+maxX=1
+minY=0
+maxY=1
+condition=5
+
+[condition1]
+a=0.35173
+b=0.35537
+c=-0.35537
+d=0.35173
+e=0.3545
+f=0.5
+p=0.1773
+
+[condition2]
+a=0.35338
+b=-0.3537
+c=0.35373
+d=0.35338
+e=0.2879
+f=0.1528
+p=0.38
+
+[condition3]
+a=0.5
+b=0
+c=0
+d=0.5
+e=0.25
+f=0.462
+p=0.1773
+
+[condition4]
+a=0.5154
+b=-0.0018
+c=0.00157
+d=0.58795
+e=0.2501
+f=0.1054
+p=0.2091
+
+[condition5]
+a=0.00364
+b=0
+c=0
+d=0.57832
+e=0.5016
+f=0.0606
+p=0.0563

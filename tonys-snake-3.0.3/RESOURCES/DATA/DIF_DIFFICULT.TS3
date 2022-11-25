@@ -1,0 +1,35 @@
+snakeDelay = 50
+snakeLength = 2
+
+normalEnergy = 1
+normalScore = 1
+normalLast = 0
+normalPossibility = 1.00
+
+invincibleEnergy = 5
+invincibleScore = 5
+invincibleLast = 8000
+invinciblePossibility = 0.1
+
+poisonedEnergy = 2
+poisonedScore = -10
+poisonedLast = 200
+poisonedPossibiilty = 0.05
+
+speedingEnergy = 0
+speedingScore = 3
+speedingLast = 500
+speedingDelta = 2
+speedingPossibility = 0.15
+
+slowEnergy = 0
+slowScore = 3
+slowLast = 500
+slowDelta = 2
+slowPossibility = 0.15
+
+invisibleEnergy = 0
+invisibleScore = 10
+invisibleLast = 3500
+invisiblePossibility = 0.05
+

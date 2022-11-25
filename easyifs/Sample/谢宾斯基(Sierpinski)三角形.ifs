@@ -1,0 +1,53 @@
+;IFS(Iterator Function System) 配置文件
+;
+;[main] 节中：
+;name = IFS 名称
+;iterLimit = IFS 迭代次数
+;color = 绘图颜色(默认为绿色)
+;minX, maxX = 绘图窗口的 x 坐标范围 [minX, maxX]
+;minY, maxY = 绘图窗口的 y 坐标范围 [minX, maxX]
+;condition = IFS 公式个数
+;
+;[conditionx] 节中
+;a、b、c、d、e、f 是 IFS 公式的常数项：
+;	x = a * x + b * y + e
+;	y = c * x + d * y + f
+;p = 概率
+;要求各公式的概率和 == 1
+
+[main]
+name=谢宾斯基(Sierpink)三角形
+iterLimit=50000
+color=65280
+minX=-0.2
+maxX=2.2
+minY=-0.2
+maxY=1.2
+condition=3
+
+[condition1]
+a=0.5
+b=0
+c=0
+d=0.5
+e=0
+f=0
+p=0.3333
+
+[condition2]
+a=0.5
+b=0
+c=0
+d=0.5
+e=1
+f=0
+p=0.3333
+
+[condition3]
+a=0.5
+b=0
+c=0
+d=0.5
+e=0.5
+f=0.5
+p=0.3334

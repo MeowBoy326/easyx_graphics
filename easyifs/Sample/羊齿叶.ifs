@@ -1,0 +1,62 @@
+;IFS(Iterator Function System) 配置文件
+;
+;[main] 节中：
+;name = IFS 名称
+;iterLimit = IFS 迭代次数
+;color = 绘图颜色(默认为绿色)
+;minX, maxX = 绘图窗口的 x 坐标范围 [minX, maxX]
+;minY, maxY = 绘图窗口的 y 坐标范围 [minX, maxX]
+;condition = IFS 公式个数
+;
+;[conditionx] 节中
+;a、b、c、d、e、f 是 IFS 公式的常数项：
+;	x = a * x + b * y + e
+;	y = c * x + d * y + f
+;p = 概率
+;要求各公式的概率和 == 1
+
+[main]
+name=羊齿叶
+iterLimit=50000
+color=65280
+minX=-2.6
+maxX=3.2
+minY=-0.5
+maxY=10.5
+condition=4
+
+[condition1]
+a=0
+b=0
+c=0
+d=0.16
+e=0
+f=0
+p=0.01
+
+[condition2]
+a=0.85
+b=0.04
+c=-0.04
+d=0.85
+e=0
+f=1.6
+p=0.85
+
+[condition3]
+a=0.2
+b=-0.26
+c=0.23
+d=0.22
+e=0
+f=1.6
+p=0.07
+
+[condition4]
+a=-0.15
+b=0.28
+c=0.26
+d=0.24
+e=0
+f=0.44
+p=0.07

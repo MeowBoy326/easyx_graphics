@@ -1,0 +1,5 @@
+highScore = 0
+difficulty = 1
+isMaster = 0
+isWallHacker = 0
+showSpecial = 0
