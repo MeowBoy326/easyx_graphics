@@ -1,7 +1,10 @@
 #include"indexPage.h"
 IndexPage::IndexPage(MatrixUI& UI):UI(UI){//¹¹Ôìº¯Êý
-
+	_buttonRange[0] = { 500 + 120, 500 + 673, 50 + 105, 50 + 207 };
+	_buttonRange[0] = { 500 + 136, 500 + 672, 50 + 264, 50 + 367 };
+	_buttonRange[0] = { 500 + 133, 500 + 684, 50 + 427, 50 + 528 };
 }
+
 bool IndexPage::_judgeInRect(MOUSEMSG& m,struct Rect rect ) {
     if (m.x >= rect.ltx&&m.x<=rect.rbx&&m.y>=rect.lty&&m.y<=rect.rby) {
         return true;

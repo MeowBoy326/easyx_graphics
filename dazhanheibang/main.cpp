@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include <graphics.h>
 
+using namespace std;
 
 int i;
 void main()
@@ -169,7 +170,7 @@ bool GameOver()				//ÓÎÏ·½áÊø
 {
 	char gameovertext[256];
 	int highest_score;
-	ifstream fin("data.dat",ios::in | ios::nocreate);
+	ifstream fin("data.dat",ios::in /*| ios::nocreate*/);
 	ofstream fout;
 	if( !fin )
 	{

@@ -23,10 +23,7 @@ private:
 	//@闯关页面的背景图片
 	const wchar_t *_backgroundSrc=L"./img/levelPage/1.png";
 	//按键位置
-	struct Rect _buttonDatas[2]={
-		{1042,1198,634,685},
-		{2,6,7,8}
-	};
+	struct Rect _buttonDatas[2];
 	//此时的关卡
 	char _NOWLEVEL;
 	int _getMouseState(ExMessage& m);

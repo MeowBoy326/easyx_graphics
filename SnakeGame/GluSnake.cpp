@@ -55,8 +55,13 @@ Point SnakeBody::Find_SnakeBody(int len)   //ÕÒµ½Ä³½ÚÉßÌå
 
 void SnakeFood::Food_init()
 {
-    for (int i = 0; i < 100; i++)food[i] = { 0xff,0xff };
+	for (int i = 0; i < 100; i++){
+		Food _f;
+		_f.fdxy = {0xff,0xff};
+		food[i] = _f;
+	}
 }
+
 int SnakeFood::Supple_Food()
 {
 

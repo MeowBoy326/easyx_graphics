@@ -293,7 +293,7 @@ public:
 			if (money[0] < 0) { MessageBox(GetHWnd(), _T("金钱不足"), _T("金钱不足"), MB_OK); exit(0); }
 			else if (money[1] < 0) money[1] = rand() % 500 + 500;
 			else if (money[2] < 0) money[2] = rand() % 500 + 500;
-			auto cc = RGB(0, 0, 255);
+			auto cc = RGB(0, 255, 255);
 			const TCHAR* tcs1 = _T("退出");
 			Button escape(screenW / 2 - textwidth(tcs1) - 50, screenH / 2 - textheight(tcs1), screenW / 2 - 10, screenH / 2 + 10, tcs1, 26, cc);
 			const TCHAR* tcs2 = _T("继续");
@@ -337,6 +337,21 @@ private:
 	// 单例构造，发牌、生成背景图片、处理数据等
 	Controller()
 	{
+		failed[0] = false;		// 三个玩家的弃牌状态
+		failed[1] = false;
+		failed[2] = false;
+		looked[0] = false;		// 三个玩家的看牌状态
+		looked[1] = false;
+		looked[2] = false;
+		money[0] = rand() % 300 + 200;//三个玩家拥有的钱
+		money[1] = rand() % 300 + 200;
+		money[2] = rand() % 300 + 200;
+		moneysOut[0] = 1;// 加注金额的 4 个限定
+		moneysOut[1] = 2;
+		moneysOut[2] = 5;
+		moneysOut[3] = 10;
+		
+
 		CardGraph::CreatCardbk();
 		cd52 = Cards52::GetInstance();
 
@@ -355,14 +370,15 @@ private:
 		int py = screenH * 3 / 5;
 		int px = (screenW - 7 * 60 - 6 * 10) / 2;
 		buts.resize(7, Button());
+		auto cc = RGB(255, 255, 0);
 		auto it = buts.begin();
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("弃牌"), 22); ++n;
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("开牌"), 22); ++n;
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("十元"), 22); ++n;
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("五元"), 22); ++n;
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("两元"), 22); ++n;
-		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("一元"), 22); ++n;
-		*it = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("看牌"), 22);
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("弃牌"), 22,cc); ++n;
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("开牌"), 22, cc); ++n;
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("十元"), 22, cc); ++n;
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("五元"), 22, cc); ++n;
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("两元"), 22, cc); ++n;
+		*(it++) = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("一元"), 22, cc); ++n;
+		*it = Button(px + n * 70, py, px + n * 70 + 60, py + 30, _T("看牌"), 22, cc);
 		const TCHAR* tcs = _T("规则");
 		rules = Button(screenW - 90, screenH - 50, screenW - 20, screenH - 14, tcs, 26, RED);
 		settextstyle(20, 0, _T("Microsoft YaHei UI"));
@@ -375,6 +391,7 @@ private:
 	void InitGraph()
 	{
 		initgraph(screenW, screenH);
+		loadimage(NULL, _T(".\\test.jpg"), screenW, screenH, false);
 		putimage(0, 0, background);
 		setbkmode(TRANSPARENT);
 		BeginBatchDraw();
@@ -564,10 +581,10 @@ private:
 	int moneyAll = 3;				// 加注的总金额
 	int curPlayer = 0;				// 当前应该操作的玩家：0.玩家，1.ai1，2.ai2
 	bool finish = false;			// 游戏是否结束
-	bool failed[3] = { false };		// 三个玩家的弃牌状态
-	bool looked[3] = { false };		// 三个玩家的看牌状态
-	int money[3] = { rand() % 300 + 200,rand() % 300 + 200,rand() % 300 + 200 };	//三个玩家拥有的钱
-	const int moneysOut[4] = { 1,2,5,10 };		// 加注金额的 4 个限定
+	bool failed[3];		// 三个玩家的弃牌状态
+	bool looked[3];		// 三个玩家的看牌状态
+	int money[3];	//三个玩家拥有的钱
+	int moneysOut[4];		// 加注金额的 4 个限定
 	std::vector<Button> buts;					// 玩家操作是的按钮
 	Button rules;								// 规则按钮，显示规则
 };

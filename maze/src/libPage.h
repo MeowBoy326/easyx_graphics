@@ -12,19 +12,12 @@ struct Rect {
 };
 private:
 	MatrixUI&UI;
-	struct Rect _buttonRange[7] = {
-	{968,1240, 44,100},
-	{968,1240, 109 , 163},
-	{968,1240, 173,230},
-	{982,1100,382,510},
-	{1136,1228,440,507},
-	{1000,1200,579,626},
-	{968,1240,251,299}//反转迷宫按钮
-	};
+	struct Rect _buttonRange[7];//反转迷宫按钮
+	
 
 	int _width = 42, _height = 29;
 	bool _game = false;//是否为可游戏模式
-	struct Point _body = { 0,1 };
+	struct Point _body;
 	bool _judgeInRect(ExMessage& m, struct Rect rect);//判断鼠标是否在矩形范围内
 	void _setBlockColor(int x,int y,char r,char g,char b);
 	void _setUIBuffer(struct Point point, char r, char g, char b);

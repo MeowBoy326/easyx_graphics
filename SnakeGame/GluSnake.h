@@ -94,7 +94,7 @@ public:
     void Food_init();
     int Supple_Food();
 public:
-    Food food[100] = { 0 };
+    Food food[100];
     int foodSum = 1;
 
 };
@@ -188,7 +188,10 @@ public:
         for (int i = 0; i < foodSum; i++)if (head.x == food[i].fdxy.x && head.y == food[i].fdxy.y)
         {
             if (score / 10 % 10 == 9)playmusicEat(0); else playmusicEat(1);
-            food[i] = { 0xff,0xff }; return Snake_condition::ate;
+			Food _f;
+			_f.fdxy = { 0xff, 0xff };
+			food[i] = _f;
+			return Snake_condition::ate;
         }                           //无操作
         Del_SnakeBody();            //删除一节
         len = Snake_Body.len;

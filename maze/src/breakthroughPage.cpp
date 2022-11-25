@@ -1,6 +1,14 @@
 #include"breakthroughPage.h"
 BreakthroughPage::BreakthroughPage(MatrixUI& UI):UI(UI) {//构造函数
-
+	_buttonRange[0] = { 48, 296, 39, 269 };
+	_buttonRange[1] = { 373, 623, 39, 273 };
+	_buttonRange[2] = { 689, 936, 39, 273 };
+	_buttonRange[3] = { 987, 1230, 39, 273 };
+	_buttonRange[4] = { 48, 296, 350, 587 };
+	_buttonRange[5] = { 373, 623, 350, 587 };
+	_buttonRange[6] = { 689, 936, 350, 587 };
+	_buttonRange[7] = { 987, 1230, 350, 587 };
+	_buttonRange[8] = { 21, 79, 653, 700 };
 }
 
 //判断点击点是否在矩形范围内

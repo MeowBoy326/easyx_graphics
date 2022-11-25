@@ -1,6 +1,10 @@
 ﻿#include"levelPage.h"
 #include"PopUpModule.h"
 LevelPage::LevelPage(unsigned char level) {
+
+	_buttonDatas[0] = { 1042, 1198, 634, 685 };
+	_buttonDatas[1] = { 2, 6, 7, 8 };
+
 	/*
 	设置不同关卡的
 	*/

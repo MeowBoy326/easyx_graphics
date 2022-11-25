@@ -7,6 +7,18 @@
 //972 251 1241 299
 
 LibPage::LibPage(MatrixUI& UI):UI(UI){//¹¹Ôìº¯Êý
+
+	_buttonRange[0] = { 968, 1240, 44, 100 };
+	_buttonRange[1] = { 968, 1240, 109, 163 };
+	_buttonRange[2] = { 968, 1240, 173, 230 };
+	_buttonRange[3] = { 982, 1100, 382, 510 };
+	_buttonRange[4] = { 1136, 1228, 440, 507 };
+	_buttonRange[5] = { 1000, 1200, 579, 626 };
+	_buttonRange[6] = { 968, 1240, 251, 299 };
+
+	_body.x = 0;
+	_body.y = 1;
+
 	for (int i = 0; i < 41; i++) {
 		for (int j = 0; j < 29; j++) {
 			_Map[j][i] = '0';

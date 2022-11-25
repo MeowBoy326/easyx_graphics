@@ -180,9 +180,9 @@ bool GameData::LoadData()
 void GameData::Reconstruct()
 {
 	//»Ö¸´Ä¬ÈÏÊý¾Ý
-	memset(data, 0, MAXSIZE * MAXSIZE);
-	memset(recordData, 0, MAXSIZE * MAXSIZE);
-	memset(userData, 0, MAXSIZE * MAXSIZE);
+	memset(data, 0, 20 * 20);
+	memset(recordData, 0, 20 * 20);
+	memset(userData, 0, 20 * 20);
 	isPrompted = false;
 	isRecord = false;
 	lineDis.clear();
